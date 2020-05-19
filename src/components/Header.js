@@ -35,8 +35,11 @@ function Header(props) {
             >
               About COVID-19
             </Nav.Link>
-            <Nav.Link href="#home" className="text-light h5">
-              About WHO
+            <Nav.Link
+              href="https://www.youtube.com/watch?v=BtulL3oArQw"
+              className="text-light h5"
+            >
+              Song
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>

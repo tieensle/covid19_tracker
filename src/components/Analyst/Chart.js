@@ -51,7 +51,12 @@ const Chart = ({ data: { confirmed, recovered, deaths }, country }) => {
     </div>
   );
 
-  return <div className="container">{lineChart}</div>;
+  return (
+    <div className="container">
+      <div className="hint">*hint: click label to hide data</div>
+      {lineChart}
+    </div>
+  );
 };
 
 export default Chart;
