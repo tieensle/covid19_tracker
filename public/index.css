@@ -1,5 +1,6 @@
 .mid-night {
-  background-color: #1e1f26;
+  /* background-color: #1e1f26; */
+  background-color: #dfdfef;
 }
 
 * {
@@ -33,4 +34,66 @@
 
 .text-silver {
   color: #dfdfef;
+}
+
+
+.bg-info-me {
+  background-color: rgba(75, 192, 192, 1) !important;
+}
+
+.bg-info-blur-50 {
+  background-color: rgba(75, 192, 192, 0.5) !important;
+}
+
+.bg-info-blur {
+  background-color: rgba(75, 192, 192, 0.2) !important;
+}
+
+.text-info-me {
+  color: rgba(75, 192, 192, 1);
+}
+
+.text-info-blur-50 {
+  color: rgba(75, 192, 192, 0.5);
+}
+
+.text-info-blur {
+  color: rgba(75, 192, 192, 0.2);
+}
+
+.bg-danger-me {
+  background-color: #F93822FF;
+}
+
+.text-danger-me {
+  color: #F93822FF !important;
+}
+
+.bg-danger-blur-50 {
+  background-color: rgba(249, 56, 34, 0.5) !important;
+}
+
+.bg-danger-blur {
+  background-color: rgba(249, 56, 34, 0.26) !important;
+}
+
+.bg-success-me {
+  background-color: #53A567FF !important;
+}
+
+.text-success-me {
+  color: #53A567FF;
+}
+
+.bg-success-blur-50 {
+  background-color: rgba(83, 165, 103, 0.5) !important;
+}
+
+.bg-success-blur {
+  background-color: rgba(83, 165, 103, 0.253) !important;
+}
+
+.w-card {
+  min-width: 10em !important;
+  max-width: 12em;
 }

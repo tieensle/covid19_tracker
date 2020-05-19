@@ -1,8 +1,19 @@
 import React, { useState, useEffect } from "react";
+import CountUp from "react-countup";
 
 import { fetchDataGlobal, fetchDataCountries } from "../api/index.js";
 
-const Card = (props) => {
+const Card = ({
+  data: {
+    confirmed,
+    todayConfirmed,
+    recovered,
+    deaths,
+    todayDeaths,
+    active,
+    critical,
+  },
+}) => {
   // const [dataGlobal, setDataGlobal] = useState({});
   // const getDataGlobal = async () => {
   //   try {
@@ -16,39 +27,51 @@ const Card = (props) => {
   // useEffect(() => {
   //   getDataGlobal();
   // }, []);
-  if (!props.data) return <div>Loading...</div>;
+  if (!confirmed) return <div>Loading...</div>;
   return (
-    <>
+    <div className="text-center">
       <div className="h1 text-silver card-body mr-auto">Overview</div>
-      <div className="h3 text-info  mr-auto">
-        <div>Total Confirmed</div>
-        <div className="h5 mt-2">{props.data.cases}</div>
+      <div className="h3 text-info mr-auto">
+        <div>Confirmed</div>
+        <CountUp start={0} end={confirmed} duration={1} separator="," />
+        {/* <div className="h5 mt-2">{cases}</div> */}
       </div>
-      <div className="h3 text-info  ml-auto mr-auto">
-        <div>New Confirmed</div>
-        <div className="h5 mt-2">{props.data.todayCases}</div>
+      <div className="h3 text-info-me  ml-auto mr-auto">
+        <div>Today Confirmed</div>
+        <CountUp start={0} end={todayConfirmed} duration={1} separator="," />
+        {/* <div className="h5 mt-2">{todayConfirmed}</div> */}
       </div>
-      <div className="h3 text-success ml-auto mr-auto">
-        <div>Total Recovered</div>
-        <div className="h5 mt-2  ml-auto mr-auto">{props.data.recovered}</div>
+      <div className="h3 text-success-me ml-auto mr-auto">
+        <div>Recovered</div>
+        <CountUp start={0} end={recovered} duration={1} separator="," />
+
+        {/* <div className="h5 mt-2  ml-auto mr-auto">{recovered}</div> */}
       </div>
       <div className="h3 text-warning ml-auto mr-auto">
         <div>Critical</div>
-        <div className="h5 mt-2">{props.data.critical}</div>
+        <CountUp start={0} end={critical} duration={1} separator="," />
+
+        {/* <div className="h5 mt-2">{critical}</div> */}
       </div>
       <div className="h3 text-active ml-auto mr-auto">
         <div>Active</div>
-        <div className="h5 mt-2">{props.data.active}</div>
+        <CountUp start={0} end={active} duration={1} separator="," />
+
+        {/* <div className="h5 mt-2">{active}</div> */}
       </div>
       <div className="h3 text-danger ml-auto mr-auto">
         <div>Deaths</div>
-        <div className="h5 mt-2">{props.data.deaths}</div>
+        <CountUp start={0} end={deaths} duration={1} separator="," />
+
+        {/* <div className="h5 mt-2">{deaths}</div> */}
       </div>
-      <div className="h3 text-danger ml-auto mr-auto">
-        <div>New Deaths</div>
-        <div className="h5 mt-2">{props.data.todayDeaths}</div>
+      <div className="h3 text-danger-me ml-auto mr-auto">
+        <div>Today Deaths</div>
+        <CountUp start={0} end={todayDeaths} duration={1} separator="," />
+
+        <div className="h5 mt-2">{todayDeaths}</div>
       </div>
-    </>
+    </div>
   );
 };
 export default Card;

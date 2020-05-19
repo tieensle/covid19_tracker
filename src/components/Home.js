@@ -7,11 +7,13 @@ import { fetchDataGlobal, fetchDataCountries } from "../api/index.js";
 
 function Home(props) {
   const [dataGlobal, setDataGlobal] = useState({});
+  const [dataCountries, setDataCountries] = useState([]);
+
   const getDataGlobal = async () => {
     try {
       const data = await fetchDataGlobal();
-      console.log(data);
       setDataGlobal(data);
+      console.log(data);
     } catch (error) {
       console.log(error);
     }
@@ -20,15 +22,11 @@ function Home(props) {
     getDataGlobal();
   }, []);
 
-  const [dataCountries, setDataCountries] = useState([]);
-
   const getDataCountries = async () => {
     try {
       let data = await fetchDataCountries();
       if (data) {
-        data = await [...data].sort(
-          (a, b) => b.TotalConfirmed - a.TotalConfirmed
-        );
+        data = await [...data].sort((a, b) => b.confirmed - a.confirmed);
       }
       setDataCountries(data);
     } catch (error) {

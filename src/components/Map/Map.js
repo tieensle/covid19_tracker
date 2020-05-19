@@ -46,7 +46,7 @@ function App() {
         container: mapboxElRef.current,
         style: "mapbox://styles/notalemesa/ck8dqwdum09ju1ioj65e3ql3k",
         center: [16, 27],
-        zoom: 0,
+        zoom: 1,
       });
 
       // Add navigation controls to the top right of the canvas

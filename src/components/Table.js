@@ -27,11 +27,12 @@ function Data(props) {
         <tr>
           <th className="text-silver">Country</th>
           <th className="text-info">Confirmed</th>
-          <th className="text-info">New Confirmed</th>
-          <th className="text-success">Recovered</th>
-          <th className="text-success">New Recovered</th>
-          <th className="text-danger">Death</th>
-          <th className="text-danger">New Death</th>
+          <th className="text-info-me">Today Confirmed</th>
+          <th className="text-success-me">Recovered</th>
+          <th className="text-danger">Deaths</th>
+          <th className="text-danger-me">Today Deaths</th>
+          <th className="text-warning">Critical</th>
+          <th className="text-active">Active</th>
         </tr>
       </thead>
       <tbody>
@@ -40,13 +41,14 @@ function Data(props) {
           if (country) {
             element = (
               <tr>
-                <td>{country.Country}</td>
-                <td>{country.TotalConfirmed}</td>
-                <td>{country.NewConfirmed}</td>
-                <td>{country.TotalRecovered}</td>
-                <td>{country.NewRecovered}</td>
-                <td>{country.TotalDeaths}</td>
-                <td>{country.NewDeaths}</td>
+                <td>{country.country}</td>
+                <td>{country.confirmed}</td>
+                <td>{country.todayConfirmed}</td>
+                <td>{country.recovered}</td>
+                <td>{country.deaths}</td>
+                <td>{country.todayDeaths}</td>
+                <td>{country.critical}</td>
+                <td>{country.active}</td>
               </tr>
             );
           }
