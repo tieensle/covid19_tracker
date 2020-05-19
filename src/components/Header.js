@@ -28,8 +28,12 @@ function Header(props) {
             </Nav.Link>
           </Nav>
           <Nav>
-            <Nav.Link href="#home" className="text-light h5">
-              What is Covid 19?
+            <Nav.Link
+              href="https://www.who.int/health-topics/coronavirus#tab=tab_1"
+              className="text-light h5"
+              target="_blank"
+            >
+              About COVID-19
             </Nav.Link>
             <Nav.Link href="#home" className="text-light h5">
               About WHO

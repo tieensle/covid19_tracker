@@ -12,23 +12,20 @@ function CountryPicker(props) {
     getCountriesName();
   }, []);
   return (
-    <div>
-      <select
-        defaultValue=""
-        className="browser-default custom-select custom-select-lg mb-3"
-        onChange={(e) => props.handleChange(e.target.value)}
-      >
-        <option selected value="">
-          Global
+    <select
+      defaultValue=""
+      className="browser-default custom-select custom-select-lg mb-3"
+      onChange={(e) => props.handleChange(e.target.value)}
+    >
+      <option selected value="">
+        Global
+      </option>
+      {countries.map((country, i) => (
+        <option key={i} value={country.slug}>
+          {country.name}
         </option>
-        {countries.map((country, i) => (
-          <option key={i} value={country.slug}>
-            {country.name}
-          </option>
-        ))}
-      </select>
-      {/* <img src={`${imgLink}`+} alt="" className="flag" /> */}
-    </div>
+      ))}
+    </select>
   );
 }
 

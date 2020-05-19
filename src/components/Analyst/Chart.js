@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Line} from "react-chartjs-2";
+import { Line } from "react-chartjs-2";
 
 import { fetchDailyData } from "../../api/index.js";
 
@@ -10,7 +10,6 @@ const Chart = ({ data: { confirmed, recovered, deaths }, country }) => {
   const getDailyData = async (country) => {
     const data = await fetchDailyData(country);
     setDailyData(data);
-    console.log(data);
   };
   useEffect(() => {
     getDailyData(country);

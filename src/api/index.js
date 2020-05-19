@@ -59,7 +59,6 @@ const fetchDailyData = async (country) => {
     if (country) {
       data = data.timeline;
     }
-    console.log(data);
     const date = Object.keys(data.cases);
     const modifiedData = date.map((d) => {
       return {
@@ -69,7 +68,6 @@ const fetchDailyData = async (country) => {
         date: d,
       };
     });
-    console.log(modifiedData);
     return modifiedData;
   } catch (error) {
     return error;

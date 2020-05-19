@@ -10,7 +10,6 @@ import { fetchDataGlobal, fetchDataCountries } from "../../api/index.js";
 function Analyst() {
   const [dataGlobal, setDataGlobal] = useState({});
   const [dataCountries, setDataCountries] = useState([]);
-  const [dataDailyAll, setDataDailyAll] = useState([]);
   const [country, setCountry] = useState("");
   async function getDataGlobal() {
     try {
@@ -44,21 +43,26 @@ function Analyst() {
   return (
     <React.Fragment>
       <Header />
-      <Container fluid className="d-flex justify-content-center">
-        <Row>
-          <Col>
+      <Container fluid>
+        <Row className="mt-5">
+          <Col lg={2} md={12} sm={12} className="col-xs-1 align-items-center">
+            <CountryPicker
+              handleChange={handleCountryChange}
+              className="max-w-pick"
+            />
             <Info data={dataGlobal} />
+          </Col>
+          <Col lg={10} md={12} sm={12}>
+            <Chart data={dataGlobal} country={country} />
           </Col>
         </Row>
 
         {/* <Row> */}
         {/* <Col> */}
-        <CountryPicker handleChange={handleCountryChange} />
         {/* </Col> */}
         {/* </Row> */}
         {/* <Row> */}
         {/* <Col> */}
-        <Chart data={dataGlobal} country={country} />
         {/* </Col> */}
         {/* </Row> */}
       </Container>

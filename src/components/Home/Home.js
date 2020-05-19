@@ -41,14 +41,14 @@ function Home(props) {
       <Header />
       <Container fluid>
         <Row className="mt-3">
-          <div className="bg-navy border-r-6 ml-3">
-            <Col lg={3} md={12}>
-              <Card data={dataGlobal} />
-            </Col>
-          </div>
+          {/* <div className="bg-navy border-r-6 ml-3"> */}
+          <Col lg={3} md={12} sm={12}>
+            <Card data={dataGlobal} />
+          </Col>
+          {/* </div> */}
 
-          <Col lg={9} md={12}>
-            <div className="bg-navy border-r-6 mr-3">
+          <Col lg={9} md={12} sm={12}>
+            <div className="bg-navy border-r-6 mr-auto mb-3">
               <div className="h3 text-silver card-body">World Stats</div>
               <div className="table-wrapper-scroll-y my-custom-scrollbar table">
                 <Table data={dataCountries} />

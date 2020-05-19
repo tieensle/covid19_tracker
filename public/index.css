@@ -7,8 +7,6 @@
   box-sizing: border-box;
 }
 
-
-
 .text-active {
   color: coral;
 }
@@ -24,7 +22,7 @@
 
 .my-custom-scrollbar {
   position: relative;
-  height: 75vh;
+  height: 70vh;
   overflow: auto;
 }
 
@@ -35,7 +33,6 @@
 .text-silver {
   color: #dfdfef;
 }
-
 
 .bg-info-me {
   background-color: rgba(75, 192, 192, 1) !important;
@@ -62,11 +59,11 @@
 }
 
 .bg-danger-me {
-  background-color: #F93822FF;
+  background-color: #f93822ff;
 }
 
 .text-danger-me {
-  color: #F93822FF !important;
+  color: #f93822ff !important;
 }
 
 .bg-danger-blur-50 {
@@ -78,11 +75,11 @@
 }
 
 .bg-success-me {
-  background-color: #53A567FF !important;
+  background-color: #53a567ff !important;
 }
 
 .text-success-me {
-  color: #53A567FF;
+  color: #53a567ff;
 }
 
 .bg-success-blur-50 {
@@ -96,4 +93,13 @@
 .w-card {
   min-width: 10em !important;
   max-width: 12em;
+}
+
+.fit-image {
+  width: 2rem;
+  height: 1.2rem;
+  /* only if you want fixed height */
+}
+.max-w-pick {
+  max-width: 5rem;
 }

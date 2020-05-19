@@ -16,13 +16,16 @@ function Data(props) {
           <th className="text-active">Active</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody className="">
         {props.data.map((country) => {
           let element = <tr></tr>;
           if (country) {
             element = (
               <tr>
-                <td>{country.country}</td>
+                <td>
+                  <img src={country.flag} className="fit-image mr-2" />
+                  {country.country}
+                </td>
                 <td>{country.confirmed}</td>
                 <td>{country.todayConfirmed}</td>
                 <td>{country.recovered}</td>
