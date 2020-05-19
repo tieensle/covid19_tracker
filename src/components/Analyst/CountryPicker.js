@@ -13,21 +13,6 @@ function CountryPicker(props) {
   }, []);
   return (
     <div>
-      {/* <div className="btn-group">
-        <button
-          type="button"
-          className="btn btn-secondary dropdown-toggle"
-          data-toggle="dropdown"
-          aria-haspopup="true"
-          aria-expanded="false"
-        >
-          Global
-        </button>
-        <div className="dropdown-menu">
-          <div className="dropdown-item">1</div>
-          <div className="dropdown-item">2</div>
-        </div>
-      </div> */}
       <select
         defaultValue=""
         className="browser-default custom-select custom-select-lg mb-3"

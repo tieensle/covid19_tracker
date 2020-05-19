@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import Header from "./Header.js";
+import Header from "../Header.js";
 import Table from "./Table.js";
 import Card from "./Card.js";
 import { Container, Row, Col } from "react-bootstrap";
-import { fetchDataGlobal, fetchDataCountries } from "../api/index.js";
+import { fetchDataGlobal, fetchDataCountries } from "../.././api/index.js";
 
 function Home(props) {
   const [dataGlobal, setDataGlobal] = useState({});

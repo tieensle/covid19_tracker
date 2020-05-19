@@ -1,8 +1,7 @@
 import React from "react";
 import CountUp from "react-countup";
-function Info({ data: { cases, recovered, deaths } }) {
-  if (!cases) return <div>Loading...</div>;
-  // let { cases, recovered, deaths } = props.data;
+function Info({ data: { confirmed, recovered, deaths } }) {
+  if (!confirmed) return <div>Loading...</div>;
   return (
     <div className="d-flex flex-column">
       <div className="card border-info mb-5 text-center w-card m-1">
@@ -12,7 +11,7 @@ function Info({ data: { cases, recovered, deaths } }) {
         <div className="card-body text-info-me bg-info-blur">
           {/* <div className="h3 card-title">title</div> */}
           <div className="h5 card-text">
-            <CountUp start={0} end={cases} duration={1} separator="," />
+            <CountUp start={0} end={confirmed} duration={1} separator="," />
           </div>
         </div>
       </div>

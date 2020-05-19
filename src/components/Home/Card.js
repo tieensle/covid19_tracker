@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import CountUp from "react-countup";
 
-import { fetchDataGlobal, fetchDataCountries } from "../api/index.js";
+import { fetchDataGlobal, fetchDataCountries } from "../../api/index.js";
 
 const Card = ({
   data: {

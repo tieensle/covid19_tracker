@@ -1,26 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Table } from "react-bootstrap";
-import { fetchDataGlobal, fetchDataCountries } from "../api/index.js";
 function Data(props) {
   if (!props.data) return <div>Loading...</div>;
-  // const [dataCountries, setDataCountries] = useState([{}]);
-
-  // const getDataCountries = async () => {
-  //   try {
-  //     let data = await fetchDataCountries();
-  //     if (data) {
-  //       data = await [...data].sort(
-  //         (a, b) => b.TotalConfirmed - a.TotalConfirmed
-  //       );
-  //     }
-  //     setDataCountries(data);
-  //   } catch (error) {
-  //     alert("Can't get data! Please reload");
-  //   }
-  // };
-  // useEffect(() => {
-  //   getDataCountries();
-  // }, []);
   return (
     <Table striped bordered hover variant="dark" className="mr-4">
       <thead>

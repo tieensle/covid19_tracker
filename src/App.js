@@ -1,6 +1,6 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Home from "./components/Home.js";
+import Home from "./components/Home/Home.js";
 import MapView from "./components/Map/Map.js";
 import Analyst from "./components/Analyst/Analyst.js";
 import { BrowserRouter as Router, Route } from "react-router-dom";

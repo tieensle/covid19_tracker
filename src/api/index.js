@@ -1,17 +1,13 @@
 import axios from "axios";
-const url = "https://api.covid19api.com/summary";
-const urlGlobal = "https://corona.lmao.ninja/v2";
-const urlcountries = "https://corona.lmao.ninja/v2/countries";
-// const urlDaily = "https://covid19.mathdro.id/api";
-const urlDaily2 = "https://api.covid19api.com/dayone/country";
+const url = "https://corona.lmao.ninja/v2";
 const urlDaily = "https://disease.sh/v2/historical";
 
 const fetchDataGlobal = async (country) => {
-  let modifiedUrl = urlGlobal;
+  let modifiedUrl = url;
   if (country) {
-    modifiedUrl = `${urlGlobal}/countries/${country}`;
+    modifiedUrl = `${url}/countries/${country}`;
   } else {
-    modifiedUrl = `${urlGlobal}/all`;
+    modifiedUrl = `${url}/all`;
   }
   try {
     const { data } = await axios.get(modifiedUrl);
@@ -31,7 +27,7 @@ const fetchDataGlobal = async (country) => {
 };
 const fetchDataCountries = async () => {
   try {
-    const { data } = await axios.get(`${urlGlobal}/countries`);
+    const { data } = await axios.get(`${url}/countries`);
     const modifiedData = data.map((d) => {
       return {
         flag: d.countryInfo.flag,
@@ -51,28 +47,8 @@ const fetchDataCountries = async () => {
   }
 };
 
-// const fetchDailyData = async () => {
-//   try {
-//     // const dataAll = await axios.get(`${urlGlobal}/all`);
-//     // const dataHistoricalAll = await axios.get(`${urlGlobal}/historical/all`);
-//     // console.log(dataAll);
-//     // console.log(dataHistoricalAll);
-//     const { data } = await axios.get(urlDaily);
-//     const modifiedData = data.map((d) => {
-//       return {
-//         confirmed: d.confirmed.total,
-//         deaths: d.deaths.total,
-//         date: d.reportDate,
-//       };
-//     });
-//     console.log(modifiedData);
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
 const fetchDailyData = async (country) => {
   let modifiedUrl;
-  let data;
   if (country) {
     modifiedUrl = `${urlDaily}/${country}?lastdays=all`;
   } else {
@@ -101,7 +77,7 @@ const fetchDailyData = async (country) => {
 };
 
 const fetchCountriesName = async () => {
-  const { data } = await axios.get(`${urlGlobal}/countries`);
+  const { data } = await axios.get(`${url}/countries`);
   const countries = data.map((d) => {
     return {
       name: d.country,
