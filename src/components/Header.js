@@ -38,6 +38,7 @@ function Header(props) {
             <Nav.Link
               href="https://www.youtube.com/watch?v=BtulL3oArQw"
               className="text-light h5"
+              target="_blank"
             >
               Song
             </Nav.Link>

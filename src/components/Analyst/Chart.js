@@ -52,9 +52,9 @@ const Chart = ({ data: { confirmed, recovered, deaths }, country }) => {
   );
 
   return (
-    <div className="container">
-      <div className="hint">*hint: click label to hide data</div>
-      {lineChart}
+    <div className="d-flex flex-column">
+      <div className="hint text-light">*hint: click label to hide data</div>
+      <div className="container">{lineChart}</div>
     </div>
   );
 };
