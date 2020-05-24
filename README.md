@@ -6,6 +6,7 @@ WEBSITE TRACKING COVID1-19
 
 1. Data tracking of COVID-19
 
+<<<<<<< HEAD
 ![](image/data.png)
 
 2. COVID-19 in heatmap
