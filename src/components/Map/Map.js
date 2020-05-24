@@ -44,7 +44,7 @@ function App() {
     if (data) {
       const map = new mapboxgl.Map({
         container: mapboxElRef.current,
-        style: "mapbox://styles/notalemesa/ck8dqwdum09ju1ioj65e3ql3k",
+        style: "mapbox://styles/mapbox/dark-v10",
         center: [16, 27],
         zoom: 1,
       });
@@ -63,59 +63,149 @@ function App() {
         });
 
         // Add our layer
+
         map.addLayer({
-          id: "circles",
-          source: "points", // this should be the id of source
-          type: "circle",
+          id: "trees-heat",
+          type: "heatmap",
+          source: "points",
+          maxzoom: 15,
           paint: {
-            "circle-opacity": 0.75,
-            "circle-stroke-width": [
+            "heatmap-radius": 12,
+            "heatmap-color": [
               "interpolate",
               ["linear"],
-              ["get", "cases"],
-              1,
-              1,
-              100000,
-              1.75,
+              ["heatmap-density"],
+              0,
+              "rgba(236,222,239,0)",
+              0.2,
+              "rgb(208,209,230)",
+              0.4,
+              "rgb(166,189,219)",
+              0.6,
+              "rgb(103,169,207)",
+              0.8,
+              "rgb(28,144,153)",
             ],
-            "circle-radius": [
-              "interpolate",
-              ["linear"],
-              ["get", "cases"],
-              1,
-              4,
-              1000,
-              8,
-              4000,
-              10,
-              8000,
-              14,
-              12000,
-              18,
-              100000,
-              40,
+            "heatmap-intensity": {
+              stops: [
+                [11, 1],
+                [15, 3],
+              ],
+            },
+          },
+          "heatmap-weight": {
+            type: "exponential",
+            property: "dbh",
+            stops: [
+              [1, 0],
+              [62, 1],
             ],
-            "circle-color": [
-              "interpolate",
-              ["linear"],
-              ["get", "cases"],
-              1,
-              "#ffffb2",
-              5000,
-              "#fed976",
-              10000,
-              "#feb24c",
-              25000,
-              "#fd8d3c",
-              50000,
-              "#fc4e2a",
-              75000,
-              "#e31a1c",
-              100000,
-              "#b10026",
+          },
+          "heatmap-opacity": {
+            default: 1,
+            stops: [
+              [14, 1],
+              [15, 0],
             ],
           },
         });
+
+        map.addLayer(
+          {
+            id: "trees-point",
+            type: "circle",
+            source: "points",
+            minzoom: 14,
+            paint: {
+              // increase the radius of the circle as the zoom level and dbh value increases
+              "circle-radius": {
+                property: "dbh",
+                type: "exponential",
+                stops: [
+                  [{ zoom: 15, value: 1 }, 5],
+                  [{ zoom: 15, value: 62 }, 10],
+                  [{ zoom: 22, value: 1 }, 20],
+                  [{ zoom: 22, value: 62 }, 50],
+                ],
+              },
+              "circle-color": {
+                property: "dbh",
+                type: "exponential",
+                stops: [
+                  [0, "rgba(236,222,239,0)"],
+                  [1, "rgb(236,222,239)"],
+                  [5000, "rgb(208,209,230)"],
+                  [10000, "rgb(166,189,219)"],
+                  [50000, "rgb(103,169,207)"],
+                  [75000, "rgb(28,144,153)"],
+                  [100000, "rgb(1,108,89)"],
+                ],
+              },
+              "circle-stroke-color": "white",
+              "circle-stroke-width": 1,
+              "circle-opacity": {
+                stops: [
+                  [14, 0],
+                  [15, 1],
+                ],
+              },
+            },
+          },
+          "waterway-label"
+        );
+        // map.addLayer({
+        //   id: "circles",
+        //   source: "points",
+        //   type: "circle",
+        //   paint: {
+        //     "circle-opacity": 0.75,
+        //     "circle-stroke-width": [
+        //       "interpolate",
+        //       ["linear"],
+        //       ["get", "cases"],
+        //       1,
+        //       1,
+        //       100000,
+        //       1.75,
+        //     ],
+        //     "circle-radius": [
+        //       "interpolate",
+        //       ["linear"],
+        //       ["get", "cases"],
+        //       1,
+        //       4,
+        //       1000,
+        //       8,
+        //       4000,
+        //       10,
+        //       8000,
+        //       14,
+        //       12000,
+        //       18,
+        //       100000,
+        //       40,
+        //     ],
+        //     "circle-color": [
+        //       "interpolate",
+        //       ["linear"],
+        //       ["get", "cases"],
+        //       1,
+        //       "#ffffb2",
+        //       5000,
+        //       "#fed976",
+        //       10000,
+        //       "#feb24c",
+        //       25000,
+        //       "#fd8d3c",
+        //       50000,
+        //       "#fc4e2a",
+        //       75000,
+        //       "#e31a1c",
+        //       100000,
+        //       "#b10026",
+        //     ],
+        //   },
+        // });
 
         const popup = new mapboxgl.Popup({
           closeButton: false,
