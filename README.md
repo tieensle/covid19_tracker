@@ -6,12 +6,12 @@ WEBSITE TRACKING COVID1-19
 
 1. Data tracking of COVID-19
 
-<img src="image/data.png" width="150px" height="100px">
+![](image/data.png)
 
 2. COVID-19 in heatmap
 
-<img src="image/map.png" width="150px" height="100px">
+![](image/map.png)
 
 3. Analyst confirmed-recovered-deaths global and countries
 
-<img src="image/analyst.png" width="150px" height="100px">
+![](image/analyst.png)
