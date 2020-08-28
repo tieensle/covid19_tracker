@@ -1,6 +1,6 @@
 WEBSITE TRACKING COVID1-19
 
-## Link website: https://covidinfor.netlify.app
+## Link website: https://realtrackcovid.netlify.app
 
 ### Some features of the site
 
