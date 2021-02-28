@@ -100,6 +100,30 @@
   height: 1.2rem;
   /* only if you want fixed height */
 }
+
 .max-w-pick {
   max-width: 5rem;
 }
+
+
+
+.table-wrapper {
+  overflow-y: scroll;
+  height: 100%;
+}
+
+.table-wrapper th {
+  position: sticky;
+  top: 0;
+}
+
+/* A bit more styling to make it look better */
+/* .table-wrapper {
+  background: CadetBlue;
+} */
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+

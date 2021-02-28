@@ -1,5 +1,21 @@
 import React, { useState, useEffect } from "react";
 import { Table } from "react-bootstrap";
+const formatNumber = (str) => {
+  if (str == 0) return "0";
+  let s = "";
+  let count = 0;
+  while (str > 0) {
+    s += String(str % 10);
+    str = Math.floor(str / 10);
+    count++;
+    if (count % 3 == 0 && str > 0) {
+      s += ",";
+    }
+  }
+  const tmp = s.split("");
+  tmp.reverse();
+  return tmp.join("");
+};
 function Data(props) {
   if (!props.data) return <div>Loading...</div>;
   return (
@@ -26,13 +42,13 @@ function Data(props) {
                   <img src={country.flag} className="fit-image mr-2" />
                   {country.country}
                 </td>
-                <td>{country.confirmed}</td>
-                <td>{country.todayConfirmed}</td>
-                <td>{country.recovered}</td>
-                <td>{country.deaths}</td>
-                <td>{country.todayDeaths}</td>
-                <td>{country.critical}</td>
-                <td>{country.active}</td>
+                <td>{formatNumber(country.confirmed)}</td>
+                <td>{formatNumber(country.todayConfirmed)}</td>
+                <td>{formatNumber(country.recovered)}</td>
+                <td>{formatNumber(country.deaths)}</td>
+                <td>{formatNumber(country.todayDeaths)}</td>
+                <td>{formatNumber(country.critical)}</td>
+                <td>{formatNumber(country.active)}</td>
               </tr>
             );
           }
