@@ -8,7 +8,7 @@ WEBSITE TRACKING COVID1-19
 
 ![](image/data.png)
 
-2. COVID-19 in heatmap
+2. COVID-19 in map
 
 ![](image/map-2.png)
 
