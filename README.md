@@ -1,6 +1,6 @@
 WEBSITE TRACKING COVID1-19
 
-## Link website: https://covid19-on-bush.netlify.app
+## Link website: https://realtrackcovid.netlify.app
 
 ### Some features of the site
 
@@ -10,7 +10,7 @@ WEBSITE TRACKING COVID1-19
 
 2. COVID-19 in heatmap
 
-![](image/map.png)
+![](image/map-2.png)
 
 3. Analyst confirmed-recovered-deaths global and countries
 
