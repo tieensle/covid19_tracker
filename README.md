@@ -1,6 +1,6 @@
 WEBSITE TRACKING COVID1-19
 
-## Link website: https://covid19-on-bush.netlify.app
+## Link website: https://realtrackcovid.netlify.app
 
 ### Some features of the site
 
