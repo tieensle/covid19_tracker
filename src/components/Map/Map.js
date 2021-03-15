@@ -5,7 +5,6 @@ import lookup from "country-code-lookup";
 import Header from "../Header.js";
 
 import "./Map.css";
-// Need mapbox css for tooltips later in the tutorial
 import "mapbox-gl/dist/mapbox-gl.css";
 
 mapboxgl.accessToken =
@@ -44,7 +43,8 @@ function App() {
     if (data) {
       const map = new mapboxgl.Map({
         container: mapboxElRef.current,
-        style: "mapbox://styles/mapbox/dark-v10",
+        // style: "mapbox://styles/mapbox/dark-v10",
+        style: "mapbox://styles/notalemesa/ck8dqwdum09ju1ioj65e3ql3k",
         center: [16, 27],
         zoom: 1,
       });
@@ -153,59 +153,60 @@ function App() {
           },
           "waterway-label"
         );
-        // map.addLayer({
-        //   id: "circles",
-        //   source: "points",
-        //   type: "circle",
-        //   paint: {
-        //     "circle-opacity": 0.75,
-        //     "circle-stroke-width": [
-        //       "interpolate",
-        //       ["linear"],
-        //       ["get", "cases"],
-        //       1,
-        //       1,
-        //       100000,
-        //       1.75,
-        //     ],
-        //     "circle-radius": [
-        //       "interpolate",
-        //       ["linear"],
-        //       ["get", "cases"],
-        //       1,
-        //       4,
-        //       1000,
-        //       8,
-        //       4000,
-        //       10,
-        //       8000,
-        //       14,
-        //       12000,
-        //       18,
-        //       100000,
-        //       40,
-        //     ],
-        //     "circle-color": [
-        //       "interpolate",
-        //       ["linear"],
-        //       ["get", "cases"],
-        //       1,
-        //       "#ffffb2",
-        //       5000,
-        //       "#fed976",
-        //       10000,
-        //       "#feb24c",
-        //       25000,
-        //       "#fd8d3c",
-        //       50000,
-        //       "#fc4e2a",
-        //       75000,
-        //       "#e31a1c",
-        //       100000,
-        //       "#b10026",
-        //     ],
-        //   },
-        // });
+        map.addLayer({
+          id: "circles",
+          source: "points",
+          type: "circle",
+          paint: {
+            "circle-opacity": 0.75,
+            "circle-stroke-width": [
+              "interpolate",
+              ["linear"],
+              ["get", "cases"],
+              1,
+              1,
+              100000,
+              1.75,
+            ],
+            "circle-radius": [
+              "interpolate",
+              ["linear"],
+              ["get", "cases"],
+              0.25, 1, 250, 2, 1000, 2.5, 2000, 3.5, 3000, 4.5, 25000, 10
+              // 1,
+              // 4,
+              // 1000,
+              // 8,
+              // 4000,
+              // 10,
+              // 8000,
+              // 14,
+              // 12000,
+              // 18,
+              // 100000,
+              // 40,
+            ],
+            "circle-color": [
+              "interpolate",
+              ["linear"],
+              ["get", "cases"],
+              1,
+              "#ffffb2",
+              5000,
+              "#fed976",
+              10000,
+              "#feb24c",
+              25000,
+              "#fd8d3c",
+              50000,
+              "#fc4e2a",
+              75000,
+              "#e31a1c",
+              100000,
+              "#b10026",
+            ],
+          },
+        });
 
         const popup = new mapboxgl.Popup({
           closeButton: false,
@@ -248,9 +249,6 @@ function App() {
                 <p>Mortality Rate: <b>${mortalityRate}%</b></p>
                 ${countryFlagHTML}`;
 
-            // Ensure that if the map is zoomed out such that multiple
-            // copies of the feature are visible, the popup appears
-            // over the copy being pointed to.
             while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
               coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
             }
